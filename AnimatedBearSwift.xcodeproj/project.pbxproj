@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		F3544A2B1D6B229700422AEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3544A2A1D6B229700422AEF /* AppDelegate.swift */; };
-		F3544A2D1D6B229700422AEF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F3544A2C1D6B229700422AEF /* GameScene.sks */; };
 		F3544A2F1D6B229700422AEF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3544A2E1D6B229700422AEF /* GameScene.swift */; };
 		F3544A311D6B229700422AEF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3544A301D6B229700422AEF /* GameViewController.swift */; };
 		F3544A341D6B229700422AEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3544A321D6B229700422AEF /* Main.storyboard */; };
 		F3544A361D6B229700422AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3544A351D6B229700422AEF /* Assets.xcassets */; };
 		F3544A391D6B229700422AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3544A371D6B229700422AEF /* LaunchScreen.storyboard */; };
+		F3544A411D6B25DE00422AEF /* BearImages.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F3544A401D6B25DE00422AEF /* BearImages.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F3544A271D6B229700422AEF /* AnimatedBearSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimatedBearSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3544A2A1D6B229700422AEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3544A2C1D6B229700422AEF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		F3544A2E1D6B229700422AEF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		F3544A301D6B229700422AEF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		F3544A331D6B229700422AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3544A351D6B229700422AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3544A381D6B229700422AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3544A3A1D6B229700422AEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3544A401D6B25DE00422AEF /* BearImages.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = BearImages.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +58,8 @@
 		F3544A291D6B229700422AEF /* AnimatedBearSwift */ = {
 			isa = PBXGroup;
 			children = (
+				F3544A401D6B25DE00422AEF /* BearImages.atlas */,
 				F3544A2A1D6B229700422AEF /* AppDelegate.swift */,
-				F3544A2C1D6B229700422AEF /* GameScene.sks */,
 				F3544A2E1D6B229700422AEF /* GameScene.swift */,
 				F3544A301D6B229700422AEF /* GameViewController.swift */,
 				F3544A321D6B229700422AEF /* Main.storyboard */,
@@ -128,8 +128,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3544A2D1D6B229700422AEF /* GameScene.sks in Resources */,
 				F3544A391D6B229700422AEF /* LaunchScreen.storyboard in Resources */,
+				F3544A411D6B25DE00422AEF /* BearImages.atlas in Resources */,
 				F3544A361D6B229700422AEF /* Assets.xcassets in Resources */,
 				F3544A341D6B229700422AEF /* Main.storyboard in Resources */,
 			);
@@ -261,6 +261,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TheLADbibleGroup.AnimatedBearSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -272,6 +273,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TheLADbibleGroup.AnimatedBearSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

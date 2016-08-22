@@ -8,38 +8,45 @@
 
 import SpriteKit
 
+
+
 class GameScene: SKScene {
+    
+    var bear: SKSpriteNode!
+    var bearWalkingFrames: [SKTexture]!
+    
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+    
+        backgroundColor = (UIColor.blackColor())
         
-        self.addChild(myLabel)
+        let bearAnimatedAtlas = SKTextureAtlas(named: "BearImages")
+        var walkFrames = [SKTexture]()
+        
+        let numImages = bearAnimatedAtlas.textureNames.count
+        
+        for var i=1; i<=numImages/2; i += 1 {
+            let bearTextureName = "bear\(i)"
+            walkFrames.append(bearAnimatedAtlas.textureNamed(bearTextureName))
+        }
+        
+        bearWalkingFrames = walkFrames
+        
+        let firstFrame = bearWalkingFrames[0]
+        bear = SKSpriteNode(texture: firstFrame)
+        bear.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        addChild(bear)
+        
+        walkingBear()
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
+    func walkingBear() {
         
-        for touch in touches {
-            let location = touch.locationInNode(self)
-            
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        }
-    }
-   
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+        bear.runAction(SKAction.repeatActionForever(
+            SKAction.animateWithTextures(bearWalkingFrames,
+                timePerFrame: 0.1,
+                resize: false,
+                restore: true)),
+            withKey:"walkingInPlaceBear"
+        )
     }
 }
