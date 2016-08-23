@@ -49,4 +49,55 @@ class GameScene: SKScene {
             withKey:"walkingInPlaceBear"
         )
     }
+    
+    func bearMoveEnded() {
+        bear.removeAllActions()
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        let touch = touches.first!
+        let location = touch.locationInNode(self)
+        var multiplierForDirection: CGFloat
+        
+        let bearVelocity = frame.size.width / 3
+        
+        let moveDifference = CGPointMake(location.x - bear.position.x, location.y - bear.position.y)
+        let distanceToMove = sqrt(moveDifference.x * moveDifference.x + moveDifference.y * moveDifference.y)
+        
+        let moveDuration = distanceToMove / bearVelocity
+        
+        if moveDifference.x < 0 {
+            multiplierForDirection = 1.0
+        } else {
+            multiplierForDirection = -1.0
+        }
+        
+        bear.xScale = fabs(bear.xScale) * multiplierForDirection
+        
+        // if the bear is moving. stop it. keep walking movement though.
+        if bear.actionForKey("bearMoving") != nil {
+            bear.removeActionForKey("bearMoving")
+        }
+        
+        // if the legs aren't moving, start this now
+        if bear.actionForKey("bearWalking") == nil {
+            walkingBear()
+        }
+        
+        let moveAction = SKAction.moveTo(location, duration: Double(moveDuration))
+        
+        let doneAction = SKAction.runBlock() {
+            print("Animation complete")
+            self.bearMoveEnded()
+        }
+        
+        let moveActionWithDone = SKAction.sequence([moveAction, doneAction])
+        bear.runAction(moveActionWithDone)
+        
+    }
 }
